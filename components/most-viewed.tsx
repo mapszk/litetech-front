@@ -23,7 +23,13 @@ const articles = [
   },
 ];
 
-export function MostViewed({ className }: { className?: string }) {
+export function MostViewed({
+  className,
+  light,
+}: {
+  className?: string;
+  light?: boolean;
+}) {
   return (
     <div className={className}>
       <h3 className="text-lg font-medium mb-4">Most viewed</h3>
@@ -32,10 +38,17 @@ export function MostViewed({ className }: { className?: string }) {
           <Link
             key={index}
             href="/post/test"
-            className="flex gap-3 group border-b-2 pb-4"
+            className={cn("flex gap-3 group border-b-2 pb-4", {
+              "border-muted": light,
+            })}
           >
             <div className="flex-1">
-              <p className="text-muted leading-snug group-hover:text-white transition-colors line-clamp-3">
+              <p
+                className={cn(
+                  "text-muted leading-snug group-hover:text-white font-bold transition-colors line-clamp-3",
+                  { "group-hover:text-secondary": light }
+                )}
+              >
                 {article.title}
               </p>
             </div>

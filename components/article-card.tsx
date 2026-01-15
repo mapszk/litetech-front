@@ -24,7 +24,7 @@ export function ArticleCard({
   return (
     <div
       className={cn(
-        "relative rounded-xl overflow-hidden group p-6 flex flex-col pt-32",
+        "relative rounded-xl overflow-hidden group p-6 flex flex-col pt-32 min-h-94.5",
         className
       )}
     >
