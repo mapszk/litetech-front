@@ -1,36 +1,47 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Badge } from "@/components/ui/badge"
-import { X } from "lucide-react"
+import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { X } from "lucide-react";
 
-const topics = ["All", "Diversity & Inclusion", "Tech companies", "Crypto", "Security", "Global", "Leaks"]
+const topics = [
+  "All",
+  "Diversity & Inclusion",
+  "Tech companies",
+  "Crypto",
+  "Security",
+  "Global",
+  "Leaks",
+];
 
 export function TopicFilters() {
-  const [selectedTopics, setSelectedTopics] = useState<string[]>(["All", "Tech companies"])
+  const [selectedTopics, setSelectedTopics] = useState<string[]>([
+    "All",
+    "Tech companies",
+  ]);
 
   const toggleTopic = (topic: string) => {
     if (topic === "All") {
-      setSelectedTopics(["All"])
-      return
+      setSelectedTopics(["All"]);
+      return;
     }
 
     setSelectedTopics((prev) => {
-      const withoutAll = prev.filter((t) => t !== "All")
+      const withoutAll = prev.filter((t) => t !== "All");
       if (prev.includes(topic)) {
-        const newSelection = withoutAll.filter((t) => t !== topic)
-        return newSelection.length === 0 ? ["All"] : newSelection
+        const newSelection = withoutAll.filter((t) => t !== topic);
+        return newSelection.length === 0 ? ["All"] : newSelection;
       }
-      return [...withoutAll, topic]
-    })
-  }
+      return [...withoutAll, topic];
+    });
+  };
 
   return (
-    <section className="px-6 mb-8">
+    <section className="mb-8">
       <div className="flex items-center gap-2 flex-wrap">
         <span className="text-foreground text-sm mr-2">Topics</span>
         {topics.map((topic) => {
-          const isSelected = selectedTopics.includes(topic)
+          const isSelected = selectedTopics.includes(topic);
           return (
             <Badge
               key={topic}
@@ -45,9 +56,9 @@ export function TopicFilters() {
               {topic}
               {isSelected && topic !== "All" && <X className="w-3 h-3 ml-1" />}
             </Badge>
-          )
+          );
         })}
       </div>
     </section>
-  )
+  );
 }

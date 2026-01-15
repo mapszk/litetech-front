@@ -1,11 +1,12 @@
-import { ArticleCard } from "./article-card"
+import { ArticleCard } from "./article-card";
 
 const leftArticle = {
-  title: "How the Pentagon Learned to Use Targeted Ads to Find Its Targets—and Vladimir Putin",
+  title:
+    "How the Pentagon Learned to Use Targeted Ads to Find Its Targets—and Vladimir Putin",
   category: "Security",
   image: "/thermal-heat-vision-purple-orange-abstract.jpg",
   readTime: "8 min",
-}
+};
 
 const rightArticles = [
   {
@@ -20,11 +21,11 @@ const rightArticles = [
     image: "/apple-logo-technology-minimal.jpg",
     readTime: "8 min",
   },
-]
+];
 
 export function FeaturedArticles() {
   return (
-    <section className="px-6 mb-8">
+    <section className="mb-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <ArticleCard
@@ -51,5 +52,5 @@ export function FeaturedArticles() {
         </div>
       </div>
     </section>
-  )
+  );
 }

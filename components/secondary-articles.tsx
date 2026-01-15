@@ -1,8 +1,9 @@
-import { ArticleCard } from "./article-card"
+import { ArticleCard } from "./article-card";
 
 const leftArticles = [
   {
-    title: "Dictators Used Sandvine Tech to Censor the Internet. The US Finally Did Something About It",
+    title:
+      "Dictators Used Sandvine Tech to Censor the Internet. The US Finally Did Something About It",
     category: "Global",
     image: "/hands-reaching-abstract-art.jpg",
     readTime: "8 min",
@@ -13,18 +14,18 @@ const leftArticles = [
     image: "/green-hand-technology-cyber.jpg",
     readTime: "8 min",
   },
-]
+];
 
 const rightArticle = {
   title: "How to avoid candidate ghosting & keep talent interested",
   category: "Security",
   image: "/circuit-board-blue-technology-close-up.jpg",
   readTime: "8 min",
-}
+};
 
 export function SecondaryArticles() {
   return (
-    <section className="px-6 mb-8">
+    <section className="mb-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col gap-4">
           {leftArticles.map((article, index) => (
@@ -51,5 +52,5 @@ export function SecondaryArticles() {
         </div>
       </div>
     </section>
-  )
+  );
 }

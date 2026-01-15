@@ -1,15 +1,17 @@
-import { ArticleCard } from "./article-card"
-import { MostViewed } from "./most-viewed"
+import { ArticleCard } from "./article-card";
+import { MostViewed } from "./most-viewed";
 
 const mainArticles = [
   {
-    title: "The first rule of the extreme dishwasher loading facebook group is...",
+    title:
+      "The first rule of the extreme dishwasher loading facebook group is...",
     category: "Tech companies",
     image: "/yellow-abstract-swirl-pattern-art.jpg",
     readTime: "8 min",
   },
   {
-    title: "Binance's Top Crypto Crime Investigator Is Being Detained in Nigeria",
+    title:
+      "Binance's Top Crypto Crime Investigator Is Being Detained in Nigeria",
     category: "Crypto",
     image: "/nigeria-flag-green-white.jpg",
     readTime: "8 min",
@@ -20,11 +22,11 @@ const mainArticles = [
     image: "/circuit-board-green-technology.jpg",
     readTime: "6 min",
   },
-]
+];
 
 export function ArticleGrid() {
   return (
-    <section className="px-6 mb-8">
+    <section className="mb-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="md:col-span-1">
           <ArticleCard
@@ -59,5 +61,5 @@ export function ArticleGrid() {
         </div>
       </div>
     </section>
-  )
+  );
 }
