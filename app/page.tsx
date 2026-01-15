@@ -1,21 +1,20 @@
 import { HeroArticle } from "@/components/hero-article";
 import { TopicFilters } from "@/components/topic-filters";
 import { ArticleGrid } from "@/components/article-grid";
-import { NewsletterBanner } from "@/components/newsletter-banner";
-import { SecondaryArticles } from "@/components/secondary-articles";
-import { FeaturedArticles } from "@/components/featured-articles";
 import { LoadMore } from "@/components/load-more";
+import { MostViewed } from "@/components/most-viewed";
 
 export default function Home() {
   return (
     <main className="container mx-auto">
       <HeroArticle />
       <TopicFilters />
-      <ArticleGrid />
-      <NewsletterBanner />
-      <SecondaryArticles />
-      <FeaturedArticles />
-      <LoadMore />
+      <div className="flex flex-col gap-6 md:flex-row w-full">
+        <div className="w-full">
+          <ArticleGrid />
+        </div>
+        <MostViewed className="w-[30%] shrink-0" />
+      </div>
     </main>
   );
 }

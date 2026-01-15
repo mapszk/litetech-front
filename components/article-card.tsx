@@ -1,16 +1,18 @@
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowRight, Clock } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Clock } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 interface ArticleCardProps {
-  title: string
-  category: string
-  categoryColor?: "accent" | "primary" | "secondary"
-  image: string
-  readTime: string
-  size?: "small" | "medium" | "large"
-  id?: string
+  title: string;
+  category: string;
+  categoryColor?: "accent" | "primary" | "secondary";
+  image: string;
+  readTime: string;
+  size?: "small" | "medium" | "large";
+  id?: string;
+  className?: string;
 }
 
 export function ArticleCard({
@@ -21,21 +23,28 @@ export function ArticleCard({
   readTime,
   size = "medium",
   id = "1",
+  className,
 }: ArticleCardProps) {
   const sizeClasses = {
     small: "h-[200px]",
     medium: "h-[280px]",
     large: "h-[400px]",
-  }
+  };
 
   const categoryColors = {
     accent: "bg-accent text-accent-foreground",
     primary: "bg-primary text-primary-foreground",
     secondary: "bg-secondary text-secondary-foreground",
-  }
+  };
 
   return (
-    <div className={`relative rounded-xl overflow-hidden ${sizeClasses[size]} group`}>
+    <div
+      className={cn(
+        "relative rounded-xl overflow-hidden group",
+        sizeClasses[size],
+        className
+      )}
+    >
       <Image
         src={image || "/placeholder.svg"}
         alt={title}
@@ -44,8 +53,14 @@ export function ArticleCard({
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
       <div className="absolute inset-0 p-4 flex flex-col justify-end">
-        <Badge className={`w-fit mb-2 text-xs ${categoryColors[categoryColor]}`}>{category}</Badge>
-        <h3 className="text-foreground text-sm font-medium leading-snug mb-2 line-clamp-3">{title}</h3>
+        <Badge
+          className={cn("w-fit mb-2 text-xs", categoryColors[categoryColor])}
+        >
+          {category}
+        </Badge>
+        <h3 className="text-foreground text-sm font-medium leading-snug mb-2 line-clamp-3">
+          {title}
+        </h3>
         <div className="flex items-center justify-between">
           <Link
             href={`/post/${id}`}
@@ -59,5 +74,5 @@ export function ArticleCard({
         </div>
       </div>
     </div>
-  )
+  );
 }

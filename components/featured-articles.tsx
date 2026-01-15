@@ -25,7 +25,7 @@ const rightArticles = [
 
 export function FeaturedArticles() {
   return (
-    <section className="mb-8">
+    <section className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <ArticleCard

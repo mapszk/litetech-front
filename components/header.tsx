@@ -10,7 +10,7 @@ export function Header() {
         </Link>
         <Link
           href="#"
-          className="text-foreground text-sm flex items-center gap-1 hover:text-primary transition-colors"
+          className="text-foreground md:text-lg flex items-center gap-1 hover:text-primary transition-colors"
         >
           New post <ArrowRight className="w-4 h-4" />
         </Link>
