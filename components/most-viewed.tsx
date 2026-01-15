@@ -25,17 +25,21 @@ const articles = [
 
 export function MostViewed({ className }: { className?: string }) {
   return (
-    <div className={cn("bg-card rounded-xl", className)}>
+    <div className={className}>
       <h3 className="text-lg font-medium mb-4">Most viewed</h3>
       <div className="space-y-4">
         {articles.map((article, index) => (
-          <Link key={index} href="#" className="flex gap-3 group">
+          <Link
+            key={index}
+            href="#"
+            className="flex gap-3 group border-b-2 pb-4"
+          >
             <div className="flex-1">
-              <p className="text-foreground leading-snug group-hover:text-primary transition-colors line-clamp-3">
+              <p className="text-muted leading-snug group-hover:text-white transition-colors line-clamp-3">
                 {article.title}
               </p>
             </div>
-            <div className="relative size-24 rounded-md overflow-hidden flex-shrink-0">
+            <div className="relative size-24 rounded-md overflow-hidden shrink-0">
               <Image
                 src={article.image || "/placeholder.svg"}
                 alt={article.title}

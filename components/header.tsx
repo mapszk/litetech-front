@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function Header() {
   return (
-    <header className="h-[80px]">
+    <header className="h-[80px] sticky top-0 z-50 bg-black">
       <div className="container mx-auto flex items-center justify-between h-full">
         <Link href="/" className="flex items-center gap-2">
           <img src="/logo.svg" alt="lite-tech logo" className="h-8 w-auto" />

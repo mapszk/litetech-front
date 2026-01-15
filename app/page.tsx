@@ -1,7 +1,5 @@
 import { HeroArticle } from "@/components/hero-article";
-import { TopicFilters } from "@/components/topic-filters";
 import { ArticleGrid } from "@/components/article-grid";
-import { LoadMore } from "@/components/load-more";
 import { MostViewed } from "@/components/most-viewed";
 
 export default function Home() {
@@ -9,11 +7,11 @@ export default function Home() {
     <main className="container mx-auto">
       <HeroArticle />
       {/* <TopicFilters /> */}
-      <div className="flex flex-col gap-6 md:flex-row w-full">
+      <div className="flex flex-col gap-6 md:flex-row md:items-start w-full relative">
         <div className="w-full">
           <ArticleGrid />
         </div>
-        <MostViewed className="w-[30%] shrink-0 max-md:hidden" />
+        <MostViewed className="w-[30%] shrink-0 max-md:hidden sticky top-24" />
       </div>
     </main>
   );

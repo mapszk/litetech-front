@@ -20,8 +20,8 @@
   --accent-foreground: #000;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: #8c8c8c;
-  --input: #8c8c8c;
+  --border: #595959;
+  --input: #595959;
   --ring: #d8f34e;
   --radius: 0;
 }
