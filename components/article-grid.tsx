@@ -1,5 +1,4 @@
 import { ArticleCard } from "./article-card";
-import { LoadMore } from "./load-more";
 import { NewsletterBanner } from "./newsletter-banner";
 import { Button } from "./ui/button";
 
@@ -69,30 +68,26 @@ const mainArticles = [
 export function ArticleGrid() {
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {mainArticles.slice(0, 3).map((art, index) => (
           <ArticleCard
             key={art.title}
             title={art.title}
             category={art.category}
-            categoryColor="primary"
             image={art.image}
             readTime={art.readTime}
-            size="large"
           />
         ))}
       </div>
       <NewsletterBanner />
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {mainArticles.slice(3).map((art, index) => (
           <ArticleCard
             key={art.title}
             title={art.title}
             category={art.category}
-            categoryColor="primary"
             image={art.image}
             readTime={art.readTime}
-            size="large"
           />
         ))}
       </div>

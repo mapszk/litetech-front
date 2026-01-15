@@ -8,12 +8,12 @@ export default function Home() {
   return (
     <main className="container mx-auto">
       <HeroArticle />
-      <TopicFilters />
+      {/* <TopicFilters /> */}
       <div className="flex flex-col gap-6 md:flex-row w-full">
         <div className="w-full">
           <ArticleGrid />
         </div>
-        <MostViewed className="w-[30%] shrink-0" />
+        <MostViewed className="w-[30%] shrink-0 max-md:hidden" />
       </div>
     </main>
   );

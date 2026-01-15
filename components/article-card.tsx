@@ -7,10 +7,8 @@ import { cn } from "@/lib/utils";
 interface ArticleCardProps {
   title: string;
   category: string;
-  categoryColor?: "accent" | "primary" | "secondary";
   image: string;
   readTime: string;
-  size?: "small" | "medium" | "large";
   id?: string;
   className?: string;
 }
@@ -18,30 +16,15 @@ interface ArticleCardProps {
 export function ArticleCard({
   title,
   category,
-  categoryColor = "accent",
   image,
   readTime,
-  size = "medium",
   id = "1",
   className,
 }: ArticleCardProps) {
-  const sizeClasses = {
-    small: "h-[200px]",
-    medium: "h-[280px]",
-    large: "h-[400px]",
-  };
-
-  const categoryColors = {
-    accent: "bg-accent text-accent-foreground",
-    primary: "bg-primary text-primary-foreground",
-    secondary: "bg-secondary text-secondary-foreground",
-  };
-
   return (
     <div
       className={cn(
-        "relative rounded-xl overflow-hidden group",
-        sizeClasses[size],
+        "relative rounded-xl overflow-hidden group p-6 flex flex-col pt-32",
         className
       )}
     >
@@ -51,26 +34,25 @@ export function ArticleCard({
         fill
         className="object-cover transition-transform duration-300 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-      <div className="absolute inset-0 p-4 flex flex-col justify-end">
-        <Badge
-          className={cn("w-fit mb-2 text-xs", categoryColors[categoryColor])}
-        >
-          {category}
-        </Badge>
-        <h3 className="text-foreground text-sm font-medium leading-snug mb-2 line-clamp-3">
-          {title}
-        </h3>
-        <div className="flex items-center justify-between">
-          <Link
-            href={`/post/${id}`}
-            className="text-foreground text-xs flex items-center gap-1 hover:text-primary transition-colors"
-          >
-            Read <ArrowRight className="w-3 h-3" />
-          </Link>
-          <span className="text-muted-foreground text-xs flex items-center gap-1">
-            <Clock className="w-3 h-3" /> {readTime}
-          </span>
+      <div className="relative mt-auto flex flex-col items-start">
+        <div className="pb-0 p-4 pt-4 bg-white">
+          <Badge>{category}</Badge>
+        </div>
+        <div className="relative bg-white text-black inset-0 p-4 flex flex-col justify-end">
+          <h3 className="font-medium leading-snug mb-2 line-clamp-4">
+            {title}
+          </h3>
+          <div className="flex items-center justify-between">
+            <Link
+              href={`/post/${id}`}
+              className="flex items-center gap-1 hover:text-primary transition-colors"
+            >
+              Read <ArrowRight className="w-3 h-3" />
+            </Link>
+            <span className="text-muted-foreground text-xs flex items-center gap-1">
+              <Clock className="w-3 h-3" /> {readTime}
+            </span>
+          </div>
         </div>
       </div>
     </div>
