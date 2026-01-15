@@ -45,7 +45,7 @@ export function ArticleCard({
           <div className="flex items-center justify-between">
             <Link
               href={`/post/${id}`}
-              className="flex items-center gap-1 hover:text-primary transition-colors"
+              className="flex items-center gap-1 hover:text-secondary transition-colors"
             >
               Read <ArrowRight className="w-3 h-3" />
             </Link>

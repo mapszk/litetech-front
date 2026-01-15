@@ -1,12 +1,13 @@
 import { HeroArticle } from "@/components/hero-article";
 import { ArticleGrid } from "@/components/article-grid";
 import { MostViewed } from "@/components/most-viewed";
+import { TopicFilters } from "@/components/topic-filters";
 
 export default function Home() {
   return (
     <main className="container mx-auto pt-[80px]">
       <HeroArticle />
-      {/* <TopicFilters /> */}
+      <TopicFilters />
       <div className="flex flex-col gap-6 md:flex-row md:items-start w-full relative">
         <div className="w-full">
           <ArticleGrid />

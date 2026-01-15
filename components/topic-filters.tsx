@@ -38,23 +38,19 @@ export function TopicFilters() {
 
   return (
     <section className="mb-8">
-      <div className="flex items-center gap-2 flex-wrap">
-        <span className="text-foreground text-sm mr-2">Topics</span>
+      <div className="flex items-center gap-2 flex-nowrap overflow-x-auto hide-scrollbar md:flex-wrap md:overflow-x-visible">
+        <span className="text-lg font-bold mr-2">Topics</span>
         {topics.map((topic) => {
           const isSelected = selectedTopics.includes(topic);
           return (
             <Badge
               key={topic}
-              variant={isSelected ? "default" : "secondary"}
-              className={`cursor-pointer transition-all text-xs px-3 py-1 ${
-                isSelected
-                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-              }`}
+              variant={isSelected ? "default" : "outline"}
               onClick={() => toggleTopic(topic)}
+              className="py-2.5 px-5 cursor-pointer"
             >
               {topic}
-              {isSelected && topic !== "All" && <X className="w-3 h-3 ml-1" />}
+              {isSelected && topic !== "All" && <X className="size-12 ml-1" />}
             </Badge>
           );
         })}
