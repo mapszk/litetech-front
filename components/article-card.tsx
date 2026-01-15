@@ -10,6 +10,7 @@ interface ArticleCardProps {
   image: string
   readTime: string
   size?: "small" | "medium" | "large"
+  id?: string
 }
 
 export function ArticleCard({
@@ -19,6 +20,7 @@ export function ArticleCard({
   image,
   readTime,
   size = "medium",
+  id = "1",
 }: ArticleCardProps) {
   const sizeClasses = {
     small: "h-[200px]",
@@ -46,7 +48,7 @@ export function ArticleCard({
         <h3 className="text-foreground text-sm font-medium leading-snug mb-2 line-clamp-3">{title}</h3>
         <div className="flex items-center justify-between">
           <Link
-            href="#"
+            href={`/post/${id}`}
             className="text-foreground text-xs flex items-center gap-1 hover:text-primary transition-colors"
           >
             Read <ArrowRight className="w-3 h-3" />
