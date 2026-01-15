@@ -31,7 +31,7 @@ export function MostViewed({ className }: { className?: string }) {
         {articles.map((article, index) => (
           <Link
             key={index}
-            href="#"
+            href="/post/test"
             className="flex gap-3 group border-b-2 pb-4"
           >
             <div className="flex-1">

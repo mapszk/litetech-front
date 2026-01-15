@@ -1,19 +1,18 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { PostHero } from "@/components/post-hero"
-import { PostContent } from "@/components/post-content"
-import { RelatedPosts } from "@/components/related-posts"
+import { Footer } from "@/components/footer";
+import { PostHero } from "@/components/post-hero";
+import { PostContent } from "@/components/post-content";
+import { RelatedPosts } from "@/components/related-posts";
 
-export default async function PostPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
-
+export default async function PostPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <div className="container bg-white text-black">
       <PostHero />
       <PostContent />
       <RelatedPosts />
-      <Footer />
     </div>
-  )
+  );
 }
