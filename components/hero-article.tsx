@@ -6,8 +6,10 @@ import { Badge } from "@/components/ui/badge";
 export function HeroArticle() {
   return (
     <section className="mb-8">
-      <p className="text-muted-foreground text-sm mb-3">Today story</p>
-      <div className="relative rounded-xl overflow-hidden h-[280px] md:h-[320px]">
+      <p className="text-muted-foreground text-sm mb-3 max-md:hidden">
+        Today story
+      </p>
+      <div className="relative rounded-xl overflow-hidden h-[380px] md:h-[320px] lg:h-[500px]">
         <Image
           src="/purple-abstract-technology-digital-art.jpg"
           alt="AI Generated Videos"
