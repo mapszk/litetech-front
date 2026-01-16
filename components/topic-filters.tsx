@@ -50,7 +50,7 @@ export function TopicFilters() {
               className="py-2.5 px-5 cursor-pointer"
             >
               {topic}
-              {isSelected && topic !== "All" && <X className="size-12 ml-1" />}
+              {isSelected && topic !== "All" && <X className="!size-4 ml-1" />}
             </Badge>
           );
         })}

@@ -24,7 +24,7 @@ export function HeroArticle() {
             </h1>
             <div className="flex items-center gap-4">
               <Link
-                href="#"
+                href="/post/1"
                 className="text-foreground flex items-center gap-1 hover:text-primary transition-colors"
               >
                 Read <ArrowRight className="w-4 h-4" />
