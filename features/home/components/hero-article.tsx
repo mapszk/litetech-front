@@ -15,7 +15,7 @@ export function HeroArticle() {
           className="object-cover"
         />
         <div className="flex flex-col items-start">
-          <div className="relative p-6 bg-black pb-0">
+          <div className="relative p-6 pt-5 bg-black pb-0">
             <Badge>Diversity & Inclusion</Badge>
           </div>
           <div className="relative p-6 flex flex-col justify-end bg-black">

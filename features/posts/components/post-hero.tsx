@@ -23,11 +23,11 @@ export function PostHero() {
           </Link>
           <div className="bg-white pb-0 p-5">
             <div className="flex items-center gap-2">
-              <Avatar className="w-8 h-8 border-2 border-accent">
+              <Avatar className="size-10">
                 <AvatarImage src="/professional-woman-avatar.png" />
                 <AvatarFallback>NK</AvatarFallback>
               </Avatar>
-              <span className="">By Natsu Kim</span>
+              <span className="text-border">By Natsu Kim</span>
             </div>
           </div>
           <div className="bg-white text-black flex flex-col px-6 py-6">

@@ -83,7 +83,7 @@ export function ArticleGrid() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {mainArticles.slice(3).map((art, index) => (
           <ArticleCard
-            key={art.title}
+            key={index}
             title={art.title}
             category={art.category}
             image={art.image}
