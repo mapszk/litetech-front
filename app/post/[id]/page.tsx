@@ -1,8 +1,8 @@
-import { Footer } from "@/components/footer";
-import { PostHero } from "@/components/post-hero";
-import { PostContent } from "@/components/post-content";
-import { RelatedPosts } from "@/components/related-posts";
-import { PostLayout } from "@/components/post-layout";
+import { Footer } from "@/components/ui/footer";
+import { PostHero } from "@/features/posts/components/post-hero";
+import { PostContent } from "@/features/posts/components/post-content";
+import { RelatedPosts } from "@/features/posts/components/related-posts";
+import { PostLayout } from "@/features/posts/components/post-layout";
 
 export default async function PostPage({
   params,

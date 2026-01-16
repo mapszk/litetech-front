@@ -1,9 +1,8 @@
 import type React from "react";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import { Header } from "../components/header";
-import { Footer } from "../components/footer";
+import { Footer } from "@/components/ui/footer";
+import { Header } from "@/components/ui/header";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -29,7 +28,6 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
-        <Analytics />
       </body>
     </html>
   );

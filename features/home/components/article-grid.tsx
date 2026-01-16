@@ -1,6 +1,6 @@
-import { ArticleCard } from "./article-card";
+import { ArticleCard } from "@/features/posts/components/article-card";
 import { NewsletterBanner } from "./newsletter-banner";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 const mainArticles = [
   {

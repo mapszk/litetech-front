@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { MostViewed } from "@/components/most-viewed";
-import { ShareSidebar } from "@/components/share-sidebar";
+import { MostViewed } from "./most-viewed";
+import { ShareSidebar } from "./share-sidebar";
 
 export function PostContent() {
   return (

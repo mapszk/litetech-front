@@ -1,7 +1,7 @@
-import { HeroArticle } from "@/components/hero-article";
-import { ArticleGrid } from "@/components/article-grid";
-import { MostViewed } from "@/components/most-viewed";
-import { TopicFilters } from "@/components/topic-filters";
+import { HeroArticle } from "@/features/home/components/hero-article";
+import { ArticleGrid } from "@/features/home/components/article-grid";
+import { MostViewed } from "@/features/posts/components/most-viewed";
+import { TopicFilters } from "@/features/home/components/topic-filters";
 
 export default function Home() {
   return (
