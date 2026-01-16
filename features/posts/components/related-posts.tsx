@@ -1,13 +1,14 @@
-import Link from "next/link";
+"use client";
+
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 import { ArticleCard } from "./article-card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
+import { CreatePostModal } from "./create-post-modal";
 
 const relatedArticles = [
   {
@@ -36,38 +37,52 @@ const relatedArticles = [
 ];
 
 export function RelatedPosts() {
-  return (
-    <section className="bg-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold">Related posts</h2>
-          <Link
-            href="#"
-            className="flex items-center gap-1 hover:text-primary transition-colors font-bold"
-          >
-            New post <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-        <div className="md:hidden">
-          <Carousel opts={{ align: "start" }}>
-            <CarouselContent>
+  const handleSubmit = (title: string, file: File | null) => {
+    // TODO: Handle post creation
+    console.log("Creating post:", { title, file });
+  };
+
+  return (
+    <>
+      <section className="bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-2xl font-bold">Related posts</h2>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="cursor-pointer flex items-center gap-1 hover:text-primary transition-colors font-bold"
+            >
+              New post <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          <div className="md:hidden">
+            <Carousel opts={{ align: "start" }}>
+              <CarouselContent>
+                {relatedArticles.map((article, index) => (
+                  <CarouselItem key={index} className="basis-[85%]">
+                    <ArticleCard {...article} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+          <div className="hidden md:block">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedArticles.map((article, index) => (
-                <CarouselItem key={index} className="basis-[85%]">
-                  <ArticleCard {...article} />
-                </CarouselItem>
+                <ArticleCard key={index} {...article} />
               ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
-        <div className="hidden md:block">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {relatedArticles.map((article, index) => (
-              <ArticleCard key={index} {...article} />
-            ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <CreatePostModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleSubmit}
+      />
+    </>
   );
 }
