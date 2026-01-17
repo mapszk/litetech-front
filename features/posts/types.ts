@@ -1,14 +1,3 @@
-export interface Post {
-  id: number;
-  title: string;
-  subtitle: string;
-  topic: string;
-  author: string;
-  readTime: number;
-  coverImg: string;
-  body: string;
-}
-
 export interface SinglePost {
   id: number;
   attributes: {
@@ -44,5 +33,19 @@ export interface SinglePost {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
+  };
+}
+
+export interface PaginationMeta {
+  page: number;
+  pageSize: number;
+  pageCount: number;
+  total: number;
+}
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  meta: {
+    pagination: PaginationMeta;
   };
 }

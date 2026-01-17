@@ -25,11 +25,11 @@ export function ArticleCard({
     <div
       className={cn(
         "relative rounded-xl overflow-hidden group p-6 flex flex-col pt-32 min-h-94.5",
-        className
+        className,
       )}
     >
       <Image
-        src={image || "/placeholder.svg"}
+        src={`https://lite-tech-api.litebox.ai${image}`}
         alt={title}
         fill
         className="object-cover transition-transform duration-300 group-hover:scale-105"

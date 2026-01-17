@@ -1,81 +1,30 @@
 import { ArticleCard } from "@/features/posts/components/article-card";
 import { NewsletterBanner } from "./newsletter-banner";
 import { Button } from "@/components/ui/button";
+import { fetchPosts } from "@/features/posts/actions";
 
-const mainArticles = [
-  {
-    title:
-      "The first rule of the extreme dishwasher loading facebook group is...",
-    category: "Tech companies",
-    image: "/yellow-abstract-swirl-pattern-art.jpg",
-    readTime: "8 min",
-  },
-  {
-    title:
-      "Binance's Top Crypto Crime Investigator Is Being Detained in Nigeria",
-    category: "Crypto",
-    image: "/nigeria-flag-green-white.jpg",
-    readTime: "8 min",
-  },
-  {
-    title: "A Global Police Operation Just Took Down the Notorious LockBit",
-    category: "Security",
-    image: "/circuit-board-green-technology.jpg",
-    readTime: "6 min",
-  },
-  {
-    title:
-      "The first rule of the extreme dishwasher loading facebook group is...",
-    category: "Tech companies",
-    image: "/yellow-abstract-swirl-pattern-art.jpg",
-    readTime: "8 min",
-  },
-  {
-    title:
-      "Binance's Top Crypto Crime Investigator Is Being Detained in Nigeria",
-    category: "Crypto",
-    image: "/nigeria-flag-green-white.jpg",
-    readTime: "8 min",
-  },
-  {
-    title: "A Global Police Operation Just Took Down the Notorious LockBit",
-    category: "Security",
-    image: "/circuit-board-green-technology.jpg",
-    readTime: "6 min",
-  },
-  {
-    title:
-      "The first rule of the extreme dishwasher loading facebook group is...",
-    category: "Tech companies",
-    image: "/yellow-abstract-swirl-pattern-art.jpg",
-    readTime: "8 min",
-  },
-  {
-    title:
-      "Binance's Top Crypto Crime Investigator Is Being Detained in Nigeria",
-    category: "Crypto",
-    image: "/nigeria-flag-green-white.jpg",
-    readTime: "8 min",
-  },
-  {
-    title: "A Global Police Operation Just Took Down the Notorious LockBit",
-    category: "Security",
-    image: "/circuit-board-green-technology.jpg",
-    readTime: "6 min",
-  },
-];
+export async function ArticleGrid() {
+  const posts = await fetchPosts();
+  console.log(posts);
+  const mainArticles = posts.map((post) => ({
+    title: post.attributes.title,
+    category: post.attributes.topic,
+    image: post.attributes.coverImg.data.attributes.url,
+    readTime: `${post.attributes.readTime} min`,
+    id: post.id.toString(),
+  }));
 
-export function ArticleGrid() {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {mainArticles.slice(0, 3).map((art, index) => (
           <ArticleCard
-            key={art.title}
+            key={art.id}
             title={art.title}
             category={art.category}
             image={art.image}
             readTime={art.readTime}
+            id={art.id}
           />
         ))}
       </div>
@@ -83,11 +32,12 @@ export function ArticleGrid() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {mainArticles.slice(3).map((art, index) => (
           <ArticleCard
-            key={index}
+            key={art.id}
             title={art.title}
             category={art.category}
             image={art.image}
             readTime={art.readTime}
+            id={art.id}
           />
         ))}
       </div>
