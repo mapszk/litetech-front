@@ -73,11 +73,11 @@ export async function createRelatedPostAction(
         error: "Solo se permiten archivos de imagen",
       };
     }
-    // Validar tamaño (5MB)
+    // Validar tamaño (3MB)
     if (image.size > 3 * 1024 * 1024) {
       return {
         success: false,
-        error: "La imagen no debe superar los 5MB",
+        error: "La imagen no debe superar los 3MB",
       };
     }
 

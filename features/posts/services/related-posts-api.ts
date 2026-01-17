@@ -11,6 +11,8 @@ export async function createRelatedPost(
   const formData = new FormData();
   formData.append("title", title);
   formData.append("image", image);
+  formData.append("author", "Litetech");
+  formData.append("readTime", "5");
 
   const response = await fetch(`${RELATED_POSTS_API_URL}/api/posts/related`, {
     method: "POST",
