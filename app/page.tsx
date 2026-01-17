@@ -19,7 +19,7 @@ export default async function Home() {
       <TopicFilters />
       <div className="flex flex-col gap-6 md:flex-row md:items-start w-full relative">
         <div className="w-full">
-          <ArticleGrid posts={posts.slice(1)} />
+          <ArticleGrid initialPage={0} posts={posts.slice(1)} />
         </div>
         <MostViewed className="w-[30%] shrink-0 max-md:hidden sticky top-24" />
       </div>

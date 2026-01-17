@@ -5,9 +5,12 @@ import { getPosts, getPost } from "./services/posts-api";
 import type { SinglePost } from "./types";
 import { notFound } from "next/navigation";
 
-export async function fetchPosts(): Promise<SinglePost[]> {
+export async function fetchPosts(
+  page: number = 0,
+  pageSize = 10,
+): Promise<SinglePost[]> {
   try {
-    const data = await getPosts();
+    const data = await getPosts(page, pageSize);
     return data.data;
   } catch (error) {
     if (error instanceof HttpError && error.status === 404) {
