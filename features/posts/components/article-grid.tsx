@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ArticleCard } from "@/features/posts/components/article-card";
-import { NewsletterBanner } from "./newsletter-banner";
+import { NewsletterBanner } from "../../newsletter/components/newsletter-banner";
 import { Button } from "@/components/ui/button";
 import { SinglePost } from "@/features/posts/types";
 
@@ -46,7 +46,7 @@ export function ArticleGrid({ posts, initialPage }: Props) {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {mainArticles.slice(0, 3).map((art) => (
           <ArticleCard
             key={art.id}
@@ -61,7 +61,7 @@ export function ArticleGrid({ posts, initialPage }: Props) {
 
       <NewsletterBanner />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {mainArticles.slice(3).map((art) => (
           <ArticleCard
             key={art.id}

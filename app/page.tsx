@@ -1,7 +1,7 @@
-import { HeroArticle } from "@/features/home/components/hero-article";
-import { ArticleGrid } from "@/features/home/components/article-grid";
+import { HeroArticle } from "@/features/posts/components/hero-article";
+import { ArticleGrid } from "@/features/posts/components/article-grid";
 import { MostViewed } from "@/features/posts/components/most-viewed";
-import { TopicFilters } from "@/features/home/components/topic-filters";
+import { TopicFilters } from "@/features/posts/components/topic-filters";
 import { fetchPosts } from "@/features/posts/actions";
 
 export default async function Home() {

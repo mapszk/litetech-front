@@ -38,7 +38,7 @@ export function ArticleCard({
         <div className="pb-0 p-4 pt-4 bg-white">
           <Badge>{category}</Badge>
         </div>
-        <div className="relative bg-white text-black inset-0 p-4 flex flex-col justify-end">
+        <div className="relative bg-white text-black inset-0 p-4 flex flex-col justify-end min-w-[250px]">
           <h3 className="font-medium leading-snug mb-2 line-clamp-4">
             {title}
           </h3>
