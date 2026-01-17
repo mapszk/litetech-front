@@ -39,6 +39,8 @@ export function CreatePostModal({
 
   const handleSubmit = () => {
     onSubmit(title, file);
+    setTitle("");
+    setFile(null);
     onClose();
   };
 
