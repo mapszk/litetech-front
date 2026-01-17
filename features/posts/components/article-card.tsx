@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Clock } from "lucide-react";
+import { FileText, MoveRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -45,12 +45,12 @@ export function ArticleCard({
           <div className="flex items-center justify-between">
             <Link
               href={`/posts/${id}`}
-              className="flex items-center gap-1 hover:text-secondary transition-colors"
+              className="flex items-center gap-1.5 hover:text-secondary transition-colors"
             >
-              Read <ArrowRight className="w-3 h-3" />
+              Read <MoveRight className="size-3 text-secondary" />
             </Link>
             <span className="text-muted-foreground text-xs flex items-center gap-1">
-              <Clock className="w-3 h-3" /> {readTime}
+              <FileText className="size-4" /> {readTime}
             </span>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Clock } from "lucide-react";
+import { FileText, MoveRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Media } from "@/shared/types";
 
@@ -40,10 +40,10 @@ export function HeroArticle({ coverImg, topic, title, readTime, id }: Props) {
                 href={`/posts/${id}`}
                 className="text-foreground flex items-center gap-1 hover:text-primary transition-colors"
               >
-                Read <ArrowRight className="w-4 h-4" />
+                Read <MoveRight className="w-4 h-4 text-secondary" />
               </Link>
               <span className="text-muted-foreground flex items-center gap-1">
-                <Clock className="w-3 h-3" /> {readTime} mins
+                <FileText className="w-3 h-3" /> {readTime} mins
               </span>
             </div>
           </div>

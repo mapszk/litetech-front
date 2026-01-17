@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MoveRight } from "lucide-react";
 import { useState } from "react";
 import { CreatePostModal } from "@/features/posts/components/create-post-modal";
 
@@ -22,9 +22,9 @@ export function Header() {
           </Link>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="cursor-pointer text-foreground md:text-lg flex items-center gap-1 hover:text-primary transition-colors"
+            className="cursor-pointer text-foreground md:text-lg flex items-center gap-2 hover:text-primary transition-colors"
           >
-            New post <ArrowRight className="w-4 h-4" />
+            New post <MoveRight className="w-4 h-4 text-primary" />
           </button>
         </div>
       </header>

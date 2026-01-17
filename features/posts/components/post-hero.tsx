@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronLeft, Clock } from "lucide-react";
+import { ChevronLeft, FileText } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import type { SinglePost } from "../types";
 import { Media } from "@/shared/types";
@@ -50,7 +50,7 @@ export function PostHero({ coverImg, author, title, readTime }: PostHeroProps) {
                 {title}
               </h1>
               <div className="flex items-center gap-2 text-input">
-                <Clock className="w-4 h-4" />
+                <FileText className="w-4 h-4" />
                 {readTime} mins read
               </div>
             </div>
