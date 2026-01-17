@@ -32,13 +32,15 @@ export function ArticleCard({
         className,
       )}
     >
-      <Image
-        src={imageSrc}
-        alt={title}
-        fill
-        unoptimized={imageSrc.includes("localhost")}
-        className="object-cover transition-transform duration-300 group-hover:scale-105"
-      />
+      <Link href={`/posts/${id}`}>
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          unoptimized={imageSrc.includes("localhost")}
+          className="object-cover transition-transform ease-out duration-500 group-hover:scale-110"
+        />
+      </Link>
       <div className="relative mt-auto flex flex-col items-start">
         <div className="pb-0 p-4 pt-4 bg-white">
           <Badge>{category}</Badge>
