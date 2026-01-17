@@ -9,7 +9,7 @@ interface ArticleCardProps {
   category: string;
   image: string;
   readTime: string;
-  id?: string;
+  id: string;
   className?: string;
 }
 
@@ -18,7 +18,7 @@ export function ArticleCard({
   category,
   image,
   readTime,
-  id = "1",
+  id,
   className,
 }: ArticleCardProps) {
   return (

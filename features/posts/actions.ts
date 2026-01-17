@@ -1,11 +1,12 @@
 "use server";
 
 import { getPosts, getPost } from "./services/posts-api";
-import type { Post, SinglePost } from "./types";
+import type { SinglePost } from "./types";
 
-export async function fetchPosts(): Promise<Post[]> {
+export async function fetchPosts(): Promise<SinglePost[]> {
   try {
-    return await getPosts();
+    const response = await getPosts();
+    return response.data;
   } catch (error) {
     console.error("Error fetching posts:", error);
     return [];

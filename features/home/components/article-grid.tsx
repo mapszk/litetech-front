@@ -5,7 +5,7 @@ import { fetchPosts } from "@/features/posts/actions";
 
 export async function ArticleGrid() {
   const posts = await fetchPosts();
-  console.log(posts);
+
   const mainArticles = posts.map((post) => ({
     title: post.attributes.title,
     category: post.attributes.topic,
