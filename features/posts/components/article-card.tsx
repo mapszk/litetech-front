@@ -44,7 +44,7 @@ export function ArticleCard({
           <Badge>{category}</Badge>
         </div>
         <div className="relative bg-white text-black inset-0 p-4 flex flex-col justify-end min-w-[250px]">
-          <h3 className="font-medium leading-snug mb-2 line-clamp-4">
+          <h3 className="font-bold leading-snug mb-2 md:text-lg line-clamp-4">
             {title}
           </h3>
           <div className="flex items-center justify-between">

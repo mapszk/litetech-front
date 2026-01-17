@@ -21,7 +21,7 @@ export async function MostViewed({
 
   return (
     <div className={className}>
-      <h3 className="text-lg font-medium mb-4">Most viewed</h3>
+      <h3 className="text-lg font-semibold mb-4">Most viewed</h3>
       <div className="space-y-4">
         {articles.map((article) => (
           <Link
@@ -34,7 +34,7 @@ export async function MostViewed({
             <div className="flex-1">
               <p
                 className={cn(
-                  "text-muted leading-snug font-bold line-clamp-3 transition-colors",
+                  "text-muted leading-snug font-semibold line-clamp-3 transition-colors",
                   {
                     "group-hover:text-white": !light,
                     "group-hover:text-secondary": light,

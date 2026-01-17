@@ -26,9 +26,9 @@ export function CreatePostButton() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="cursor-pointer flex items-center gap-1 hover:text-primary transition-colors font-bold"
+        className="cursor-pointer flex items-center gap-1 hover:text-secondary transition-colors font-bold"
       >
-        New post <ArrowRight className="w-4 h-4" />
+        New post <ArrowRight className="w-4 h-4 text-secondary" />
       </button>
       <CreatePostModal
         isOpen={isOpen}
