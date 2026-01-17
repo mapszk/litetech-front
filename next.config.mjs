@@ -4,9 +4,14 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    unoptimized: false,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lite-tech-api.litebox.ai",
+      },
+    ],
   },
- 
-}
+};
 
-export default nextConfig
+export default nextConfig;
