@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   title: "lite-tech | Tech News & Updates",
   description:
     "Your source for the latest tech news, security updates, and digital trends",
-  generator: "v0.app",
 };
 
 export default function RootLayout({
