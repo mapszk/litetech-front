@@ -1,17 +1,19 @@
 import { ArticleCard } from "@/features/posts/components/article-card";
 import { NewsletterBanner } from "./newsletter-banner";
 import { Button } from "@/components/ui/button";
-import { fetchPosts } from "@/features/posts/actions";
+import { SinglePost } from "@/features/posts/types";
 
-export async function ArticleGrid() {
-  const posts = await fetchPosts();
+interface Props {
+  posts: SinglePost[];
+}
 
+export async function ArticleGrid({ posts }: Props) {
   const mainArticles = posts.map((post) => ({
     title: post.attributes.title,
     category: post.attributes.topic,
     image: post.attributes.coverImg.data.attributes.url,
     readTime: `${post.attributes.readTime} min`,
-    id: post.id.toString(),
+    id: post.id,
   }));
 
   return (

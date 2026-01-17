@@ -9,7 +9,7 @@ interface ArticleCardProps {
   category: string;
   image: string;
   readTime: string;
-  id: string;
+  id: number;
   className?: string;
 }
 
@@ -44,7 +44,7 @@ export function ArticleCard({
           </h3>
           <div className="flex items-center justify-between">
             <Link
-              href={`/post/${id}`}
+              href={`/posts/${id}`}
               className="flex items-center gap-1 hover:text-secondary transition-colors"
             >
               Read <ArrowRight className="w-3 h-3" />

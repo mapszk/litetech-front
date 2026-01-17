@@ -2,35 +2,48 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Media } from "@/shared/types";
 
-export function HeroArticle() {
+interface Props {
+  coverImg: Media;
+  topic: string;
+  title: string;
+  readTime: number;
+  id: number;
+}
+
+export function HeroArticle({ coverImg, topic, title, readTime, id }: Props) {
+  const coverImgUrl = coverImg?.data?.attributes?.url
+    ? `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://lite-tech-api.litebox.ai"}${coverImg.data.attributes.url}`
+    : "/person-working-on-laptop-with-purple-lighting-tech.jpg";
+
   return (
     <section className="mb-8">
       <p className="text-xl font-bold mb-3 max-md:hidden">Today story</p>
       <div className="relative rounded-xl overflow-hidden h-[380px] md:h-[320px] lg:h-[500px] p-6 flex items-end">
         <Image
-          src="/purple-abstract-technology-digital-art.jpg"
-          alt="AI Generated Videos"
+          src={coverImgUrl}
+          alt={coverImg?.data?.attributes?.alternativeText || "Article hero"}
           fill
           className="object-cover"
         />
         <div className="flex flex-col items-start">
           <div className="relative p-6 pt-5 bg-black pb-0">
-            <Badge>Diversity & Inclusion</Badge>
+            <Badge>{topic}</Badge>
           </div>
           <div className="relative p-6 flex flex-col justify-end bg-black">
             <h1 className="text-foreground text-2xl md:text-3xl font-bold max-w-md leading-tight mb-3 line-clamp-4">
-              Your Kid May Already Be Watching AI-Generated Videos on YouTube
+              {title}
             </h1>
             <div className="flex items-center gap-4">
               <Link
-                href="/post/1"
+                href={`/posts/${id}`}
                 className="text-foreground flex items-center gap-1 hover:text-primary transition-colors"
               >
                 Read <ArrowRight className="w-4 h-4" />
               </Link>
               <span className="text-muted-foreground flex items-center gap-1">
-                <Clock className="w-3 h-3" /> 8 mins
+                <Clock className="w-3 h-3" /> {readTime} mins
               </span>
             </div>
           </div>
