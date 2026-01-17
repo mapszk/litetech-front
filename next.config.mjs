@@ -17,8 +17,9 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "litetech-assets.s3.us-east-2.amazonaws.com",
-      },
+        hostname: "qwcayblzlqldregoeieu.supabase.co",
+        pathname: '/storage/v1/object/public/**',
+      }
     ],
   },
 };
