@@ -9,16 +9,26 @@ import { toast } from "sonner";
 export function CreatePostButton() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleSubmit = async (title: string, file: File | null) => {
+  const handleSubmit = async (
+    title: string,
+    file: File | null,
+  ): Promise<boolean> => {
     if (!file) {
       toast.error("La imagen es requerida");
-      return;
+      return false;
     }
-    const result = await createRelatedPostAction(title, file);
-    if (result.success) {
-      toast.success("Post creado exitosamente");
-    } else {
-      toast.error(result.error || "Error al crear el post");
+
+    try {
+      const result = await createRelatedPostAction(title, file);
+      if (result.success) {
+        return true;
+      } else {
+        toast.error(result.error || "Error al crear el post");
+        return false;
+      }
+    } catch (error) {
+      toast.error("Error inesperado al crear el post");
+      return false;
     }
   };
 

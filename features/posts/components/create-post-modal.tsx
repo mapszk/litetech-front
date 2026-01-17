@@ -7,16 +7,15 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-  DialogFooter,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, CheckCircle2 } from "lucide-react";
 
 interface CreatePostModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (title: string, file: File | null) => void;
+  onSubmit: (title: string, file: File | null) => Promise<boolean>;
 }
 
 export function CreatePostModal({
@@ -26,6 +25,8 @@ export function CreatePostModal({
 }: CreatePostModalProps) {
   const [title, setTitle] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileButtonClick = () => {
@@ -37,49 +38,86 @@ export function CreatePostModal({
     setFile(selectedFile);
   };
 
-  const handleSubmit = () => {
-    onSubmit(title, file);
-    setTitle("");
-    setFile(null);
-    onClose();
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    try {
+      const success = await onSubmit(title, file);
+      if (success) {
+        setShowSuccess(true);
+      }
+    } catch (error) {
+      console.error("Error submitting post:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleClose = () => {
+    if (!isSubmitting) {
+      setTitle("");
+      setFile(null);
+      onClose();
+    }
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="lg:max-w-[620px]">
-        <div className="flex flex-col items-center gap-5 lg:p-12">
-          <DialogHeader className="text-center items-center">
-            <DialogTitle className="text-4xl text-black">
-              Upload your post
+        {showSuccess ? (
+          <div className="flex flex-col items-center gap-5 lg:p-12">
+            <DialogTitle className="text-4xl text-black text-center">
+              Your post was successfully uploaded! {isSubmitting}
             </DialogTitle>
-            <DialogDescription className="text-border text-lg text-center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse commodo libero.
-            </DialogDescription>
-          </DialogHeader>
-          <Input
-            placeholder="Post title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <Button
-            onClick={handleFileButtonClick}
-            variant="outline"
-            className="w-full"
-          >
-            Upload image <ArrowUp className="size-5" />
-          </Button>
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-            className="hidden"
-          />
-          <Button onClick={handleSubmit} variant="black" className="w-auto">
-            Confirm
-          </Button>
-        </div>
+            <Button onClick={handleClose} variant="black" className="w-auto">
+              Done
+            </Button>
+          </div>
+        ) : (
+          <div className="flex flex-col items-center gap-5 lg:p-12">
+            <DialogHeader className="text-center items-center">
+              <DialogTitle className="text-4xl text-black">
+                Upload your post
+              </DialogTitle>
+              <DialogDescription className="text-border text-lg text-center">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse commodo libero.
+              </DialogDescription>
+            </DialogHeader>
+            <Input
+              placeholder="Post title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              disabled={isSubmitting}
+            />
+            <Button
+              onClick={handleFileButtonClick}
+              variant="outline"
+              className="w-full"
+              disabled={isSubmitting}
+            >
+              Upload image <ArrowUp className="size-5" />
+            </Button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange}
+              className="hidden"
+              disabled={isSubmitting}
+            />
+            {file && (
+              <p className="text-sm text-gray-600">Selected: {file.name}</p>
+            )}
+            <Button
+              onClick={handleSubmit}
+              variant="black"
+              className="w-auto"
+              disabled={isSubmitting || !title.trim()}
+            >
+              {isSubmitting ? "Uploading..." : "Confirm"}
+            </Button>
+          </div>
+        )}
       </DialogContent>
     </Dialog>
   );
