@@ -14,7 +14,7 @@ interface PostHeroProps {
 
 export function PostHero({ coverImg, author, title, readTime }: PostHeroProps) {
   const coverImgUrl = coverImg?.data?.attributes?.url
-    ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${coverImg.data.attributes.url}`
+    ? `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}${coverImg.data.attributes.url}`
     : "/placeholder.svg";
 
   return (
