@@ -1,7 +1,7 @@
 "use server";
 
 import { HttpError } from "@/shared/types";
-import { getPosts, getPost } from "./services/posts-api";
+import { getPosts, getPost, getMostViewedPosts } from "./services/posts-api";
 import type { SinglePost } from "./types";
 import { notFound } from "next/navigation";
 
@@ -18,6 +18,11 @@ export async function fetchPosts(
     }
     throw error;
   }
+}
+
+export async function fetchMostViewedPosts(limit = 4) {
+  const response = await getMostViewedPosts(limit);
+  return response.data;
 }
 
 export async function fetchPost(id: string): Promise<SinglePost> {

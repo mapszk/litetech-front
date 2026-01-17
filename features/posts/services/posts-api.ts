@@ -15,7 +15,6 @@ export async function getPosts(
   });
 
   const response = await fetch(`${API_BASE_URL}/posts?${params.toString()}`);
-
   if (!response.ok) {
     const error: { message?: string } | null = await response
       .json()
@@ -42,4 +41,26 @@ export async function getPost(id: string): Promise<ApiResponse<SinglePost>> {
   }
   const data = await response.json();
   return data;
+}
+
+export async function getMostViewedPosts(
+  limit = 4,
+): Promise<ApiPaginatedResponse<SinglePost>> {
+  const params = new URLSearchParams({
+    "pagination[page]": "1",
+    "pagination[pageSize]": limit.toString(),
+    "pagination[withCount]": "false",
+  });
+
+  const response = await fetch(`${API_BASE_URL}/posts?${params.toString()}`);
+  if (!response.ok) {
+    const error: { message?: string } | null = await response
+      .json()
+      .catch(() => null);
+    throw new HttpError(
+      error?.message ?? `HTTP ${response.status}`,
+      response.status,
+    );
+  }
+  return response.json();
 }
