@@ -18,11 +18,14 @@ export async function RelatedPosts() {
           <CreatePostButton />
         </div>
 
-        <div className="md:hidden">
+        <div>
           <Carousel opts={{ align: "start" }}>
             <CarouselContent>
               {posts.map((post) => (
-                <CarouselItem key={post.id} className="basis-[85%]">
+                <CarouselItem
+                  key={post.id}
+                  className="basis-[85%] md:basis-1/2 lg:basis-1/3"
+                >
                   <ArticleCard
                     title={post.title}
                     category="Related"
@@ -34,21 +37,6 @@ export async function RelatedPosts() {
               ))}
             </CarouselContent>
           </Carousel>
-        </div>
-
-        <div className="hidden md:block">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {posts.map((post) => (
-              <ArticleCard
-                key={post.id}
-                title={post.title}
-                category="Related"
-                image={post.image}
-                readTime={post.readTime}
-                id={post.id}
-              />
-            ))}
-          </div>
         </div>
       </div>
     </section>

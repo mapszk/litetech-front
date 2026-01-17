@@ -54,9 +54,12 @@ export function CreatePostModal({
 
   const handleClose = () => {
     if (!isSubmitting) {
-      setTitle("");
-      setFile(null);
       onClose();
+      setTimeout(() => {
+        setShowSuccess(false);
+        setTitle("");
+        setFile(null);
+      }, 300);
     }
   };
 
