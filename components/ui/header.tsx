@@ -1,16 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, MoveRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import { useState } from "react";
 import { CreatePostModal } from "@/features/posts/components/create-post-modal";
+import { toast } from "sonner";
+import { createRelatedPostAction } from "@/features/posts/actions";
 
 export function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSubmit = (title: string, file: File | null) => {
-    // TODO: Handle post creation
-    console.log("Creating post:", { title, file });
+  const handleSubmit = async (title: string, file: File | null) => {
+    if (!file) {
+      toast.error("La imagen es requerida");
+      return;
+    }
+    const result = await createRelatedPostAction(title, file);
+    if (result.success) {
+      toast.success("Post creado exitosamente");
+    } else {
+      toast.error(result.error || "Error al crear el post");
+    }
   };
 
   return (
