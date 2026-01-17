@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Linkedin, Facebook, Twitter } from "lucide-react";
+import LinkedinIcon from "@/components/ui/linkedin-icon";
+import FacebookIcon from "@/components/ui/facebook-icon";
+import XIcon from "@/components/ui/x-icon";
 
 export function ShareSidebar({ className }: { className?: string }) {
   return (
@@ -11,19 +13,19 @@ export function ShareSidebar({ className }: { className?: string }) {
             href="#"
             className="text-black hover:text-secondary transition-colors"
           >
-            <Linkedin className="w-5 h-5" />
+            <LinkedinIcon className="size-5" />
           </Link>
           <Link
             href="#"
             className="text-black hover:text-secondary transition-colors"
           >
-            <Facebook className="w-5 h-5" />
+            <FacebookIcon className="size-5" />
           </Link>
           <Link
             href="#"
             className="text-black hover:text-secondary transition-colors"
           >
-            <Twitter className="w-5 h-5" />
+            <XIcon className="size-5" />
           </Link>
         </div>
       </div>

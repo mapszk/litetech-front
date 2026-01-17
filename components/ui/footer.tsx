@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Linkedin, Facebook, Twitter } from "lucide-react";
+import LinkedinIcon from "@/components/ui/linkedin-icon";
+import FacebookIcon from "@/components/ui/facebook-icon";
+import XIcon from "@/components/ui/x-icon";
 
 export function Footer() {
   return (
@@ -9,24 +11,24 @@ export function Footer() {
           <Link href="/" className="block max-md:mx-auto">
             <img src="/logo.svg" alt="lite-tech logo" className="h-8 w-auto" />
           </Link>
-          <div className="flex items-center max-md:justify-center gap-4">
+          <div className="flex items-center max-md:justify-center gap-4 lg:gap-10">
             <Link
               href="#"
               className="text-foreground hover:text-primary transition-colors"
             >
-              <Linkedin className="size-6" />
+              <LinkedinIcon className="size-5" />
             </Link>
             <Link
               href="#"
               className="text-foreground hover:text-primary transition-colors"
             >
-              <Facebook className="size-6" />
+              <FacebookIcon className="size-5" />
             </Link>
             <Link
               href="#"
               className="text-foreground hover:text-primary transition-colors"
             >
-              <Twitter className="size-6" />
+              <XIcon className="size-5" />
             </Link>
           </div>
         </div>
