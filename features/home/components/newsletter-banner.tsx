@@ -9,9 +9,7 @@ export function NewsletterBanner() {
           <span className="font-semibold">and get daily updates</span>
         </p>
         <Button className="md:hidden w-full">Subscribe</Button>
-        <Button size="lg" className="max-md:hidden">
-          Subscribe
-        </Button>
+        <Button className="max-md:hidden">Subscribe</Button>
       </div>
     </section>
   );

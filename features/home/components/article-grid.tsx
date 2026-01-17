@@ -92,7 +92,7 @@ export function ArticleGrid() {
         ))}
       </div>
       <div className="flex justify-center py-8">
-        <Button size="lg">Load more</Button>
+        <Button>Load more</Button>
       </div>
     </div>
   );
