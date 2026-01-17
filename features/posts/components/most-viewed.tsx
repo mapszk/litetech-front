@@ -27,9 +27,12 @@ export async function MostViewed({
           <Link
             key={article.id}
             href={`/posts/${article.id}`}
-            className={cn("flex gap-3 group border-b-2 pb-4", {
-              "border-muted": light,
-            })}
+            className={cn(
+              "flex gap-3 group border-b-2 pb-4 hover:border-white transition-colors duration-500 ease-out",
+              {
+                "border-muted hover:border-black": light,
+              },
+            )}
           >
             <div className="flex-1">
               <p
@@ -37,14 +40,14 @@ export async function MostViewed({
                   "text-muted leading-snug font-semibold line-clamp-3 transition-colors",
                   {
                     "group-hover:text-white": !light,
-                    "group-hover:text-secondary": light,
+                    "group-hover:text-black": light,
                   },
                 )}
               >
                 {article.attributes.title}
               </p>
             </div>
-            <div className="relative size-24 rounded-md overflow-hidden shrink-0">
+            <div className="relative size-24 rounded-md overflow-hidden shrink-0 group-hover:scale-105 transition-transform duration-500 ease-out">
               <Image
                 src={getCoverImg(article.attributes.coverImg)}
                 alt={
