@@ -14,9 +14,14 @@ export default async function PostPage({
 
   return (
     <PostLayout>
-      <PostHero post={post} />
+      <PostHero
+        coverImg={post.attributes.coverImg}
+        author={post.attributes.author}
+        title={post.attributes.title}
+        readTime={post.attributes.readTime}
+      />
       <div className="container bg-white text-black">
-        <PostContent post={post} />
+        <PostContent body={post.attributes.body} />
         <RelatedPosts />
       </div>
     </PostLayout>

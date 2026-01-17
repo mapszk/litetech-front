@@ -4,12 +4,10 @@ import { ShareSidebar } from "./share-sidebar";
 import type { SinglePost } from "../types";
 
 interface PostContentProps {
-  post: SinglePost;
+  body: string;
 }
 
-export function PostContent({ post }: PostContentProps) {
-  const { attributes } = post;
-
+export function PostContent({ body }: PostContentProps) {
   return (
     <div className="py-12 bg-white">
       <div className="flex flex-col md:flex-row gap-6">
@@ -21,7 +19,7 @@ export function PostContent({ post }: PostContentProps) {
             {/* Body content */}
             <div
               className="prose prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ __html: attributes.body }}
+              dangerouslySetInnerHTML={{ __html: body }}
             />
           </article>
         </div>
