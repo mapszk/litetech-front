@@ -19,7 +19,7 @@ export interface Media {
       createdAt: string;
       updatedAt: string;
     };
-  };
+  } | null;
 }
 
 export interface PaginationMeta {

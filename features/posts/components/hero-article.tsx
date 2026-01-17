@@ -13,7 +13,7 @@ interface Props {
 }
 
 export function HeroArticle({ coverImg, topic, title, readTime, id }: Props) {
-  const coverImgUrl = coverImg?.data?.attributes?.url
+  const coverImgUrl = coverImg.data?.attributes?.url
     ? `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}${coverImg.data.attributes.url}`
     : "/placeholder.svg";
 

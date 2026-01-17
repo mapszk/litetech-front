@@ -19,12 +19,14 @@ export async function generateMetadata({
     openGraph: {
       title: post.attributes.title,
       description: post.attributes.subtitle,
-      images: [
-        {
-          url: post.attributes.coverImg.data.attributes.url,
-          alt: post.attributes.coverImg.data.attributes.alternativeText,
-        },
-      ],
+      images: post.attributes.coverImg.data
+        ? [
+            {
+              url: post.attributes.coverImg.data.attributes.url,
+              alt: post.attributes.coverImg.data.attributes.alternativeText,
+            },
+          ]
+        : [],
       type: "article",
     },
   };

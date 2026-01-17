@@ -45,7 +45,7 @@ export function ArticleGrid({ posts, initialPage }: Props) {
     id: post.id,
     title: post.attributes.title,
     category: post.attributes.topic,
-    image: post.attributes.coverImg.data.attributes.url,
+    image: post.attributes.coverImg.data?.attributes.url,
     readTime: post.attributes.readTime,
   }));
 

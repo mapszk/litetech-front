@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 interface ArticleCardProps {
   title: string;
   category: string;
-  image: string;
+  image?: string;
   readTime: number;
   id: number;
   className?: string;
@@ -21,9 +21,11 @@ export function ArticleCard({
   id,
   className,
 }: ArticleCardProps) {
-  const imageSrc = /^https?:\/\//.test(image)
-    ? image
-    : `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}${image}`;
+  const imageSrc = image
+    ? /^https?:\/\//.test(image)
+      ? image
+      : `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}${image}`
+    : "/placeholder.svg";
 
   return (
     <div
