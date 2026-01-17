@@ -29,7 +29,7 @@ export function ArticleCard({
       )}
     >
       <Image
-        src={`https://lite-tech-api.litebox.ai${image}`}
+        src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${image}`}
         alt={title}
         fill
         className="object-cover transition-transform duration-300 group-hover:scale-105"

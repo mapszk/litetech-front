@@ -1,7 +1,7 @@
 import { ApiPaginatedResponse, ApiResponse, HttpError } from "@/shared/types";
 import { SinglePost } from "../types";
 
-const API_BASE_URL = "https://lite-tech-api.litebox.ai/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export async function getPosts(
   page: number = 0,

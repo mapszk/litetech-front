@@ -14,8 +14,8 @@ interface Props {
 
 export function HeroArticle({ coverImg, topic, title, readTime, id }: Props) {
   const coverImgUrl = coverImg?.data?.attributes?.url
-    ? `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://lite-tech-api.litebox.ai"}${coverImg.data.attributes.url}`
-    : "/person-working-on-laptop-with-purple-lighting-tech.jpg";
+    ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${coverImg.data.attributes.url}`
+    : "/placeholder.svg";
 
   return (
     <section className="mb-8">

@@ -14,8 +14,8 @@ interface PostHeroProps {
 
 export function PostHero({ coverImg, author, title, readTime }: PostHeroProps) {
   const coverImgUrl = coverImg?.data?.attributes?.url
-    ? `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://lite-tech-api.litebox.ai"}${coverImg.data.attributes.url}`
-    : "/person-working-on-laptop-with-purple-lighting-tech.jpg";
+    ? `${process.env.NEXT_PUBLIC_API_BASE_URL}${coverImg.data.attributes.url}`
+    : "/placeholder.svg";
 
   return (
     <div className="relative flex items-end h-125 md:h-145 lg:h-160 p-6 md:p-14 lg:p-30">
