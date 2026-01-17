@@ -15,3 +15,16 @@ export interface SinglePost {
     publishedAt: string;
   };
 }
+
+export interface RelatedPost {
+  id: number;
+  title: string;
+  image: string;
+  createdAt: string;
+}
+
+export interface CreateRelatedPostResult {
+  success: boolean;
+  data?: RelatedPost;
+  error?: string;
+}
