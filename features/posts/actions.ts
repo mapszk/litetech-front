@@ -21,8 +21,15 @@ export async function fetchPosts(
 }
 
 export async function fetchMostViewedPosts(limit = 4) {
-  const response = await getMostViewedPosts(limit);
-  return response.data;
+  try {
+    const data = await getMostViewedPosts(limit);
+    return data.data;
+  } catch (error) {
+    if (error instanceof HttpError && error.status === 404) {
+      return notFound();
+    }
+    throw error;
+  }
 }
 
 export async function fetchPost(id: string): Promise<SinglePost> {
