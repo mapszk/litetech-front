@@ -15,7 +15,8 @@ export async function fetchPosts(): Promise<SinglePost[]> {
 
 export async function fetchPost(id: string): Promise<SinglePost | null> {
   try {
-    return await getPost(id);
+    const data = await getPost(id);
+    return data.data;
   } catch (error) {
     console.error("Error fetching post:", error);
     return null;
