@@ -45,7 +45,7 @@ export function PostHero({ coverImg, author, title, readTime }: PostHeroProps) {
             </div>
           </div>
           <div className="bg-white text-black flex flex-col px-6 py-6">
-            <div className="max-w-lg">
+            <div className="max-w-lg md:min-w-[300px]">
               <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4 text-balance">
                 {title}
               </h1>

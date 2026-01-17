@@ -4,6 +4,7 @@ import { Space_Grotesk } from "next/font/google";
 import { Footer } from "@/components/ui/footer";
 import { Header } from "@/components/ui/header";
 import { Toaster } from "sonner";
+import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${spaceGrotesk.variable} font-sans antialiased`}>
+        <NextTopLoader color="#d8f34e" showSpinner={false} shadow={false} />
         <Header />
         {children}
         <Footer />
