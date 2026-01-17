@@ -4,13 +4,11 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { fetchPosts } from "@/features/posts/actions";
+import { getRelatedPostsAction } from "@/features/posts/actions";
 import { CreatePostButton } from "./create-post-button";
 
 export async function RelatedPosts() {
-  const posts = await fetchPosts(1, 3);
-
-  if (posts.length === 0) return null;
+  const posts = await getRelatedPostsAction();
 
   return (
     <section className="bg-white">
@@ -26,10 +24,10 @@ export async function RelatedPosts() {
               {posts.map((post) => (
                 <CarouselItem key={post.id} className="basis-[85%]">
                   <ArticleCard
-                    title={post.attributes.title}
-                    category={post.attributes.topic}
-                    image={post.attributes.coverImg.data.attributes.url}
-                    readTime={`${post.attributes.readTime} min`}
+                    title={post.title}
+                    category="Related"
+                    image={post.image}
+                    readTime={post.readTime}
                     id={post.id}
                   />
                 </CarouselItem>
@@ -43,10 +41,10 @@ export async function RelatedPosts() {
             {posts.map((post) => (
               <ArticleCard
                 key={post.id}
-                title={post.attributes.title}
-                category={post.attributes.topic}
-                image={post.attributes.coverImg.data.attributes.url}
-                readTime={`${post.attributes.readTime} min`}
+                title={post.title}
+                category="Related"
+                image={post.image}
+                readTime={post.readTime}
                 id={post.id}
               />
             ))}

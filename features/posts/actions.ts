@@ -5,8 +5,11 @@ import { getPosts, getPost, getMostViewedPosts } from "./services/posts-api";
 import type { SinglePost } from "./types";
 import { notFound } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import { createRelatedPost } from "./services/related-posts-api";
-import { CreateRelatedPostResult } from "./types";
+import {
+  createRelatedPost,
+  getRelatedPosts,
+} from "./services/related-posts-api";
+import { CreateRelatedPostResult, RelatedPost } from "./types";
 
 export async function fetchPosts(
   page: number = 0,
@@ -94,5 +97,14 @@ export async function createRelatedPostAction(
       success: false,
       error: error instanceof Error ? error.message : "Error desconocido",
     };
+  }
+}
+
+export async function getRelatedPostsAction(): Promise<RelatedPost[]> {
+  try {
+    return await getRelatedPosts();
+  } catch (error) {
+    console.error("Error fetching related posts:", error);
+    return [];
   }
 }

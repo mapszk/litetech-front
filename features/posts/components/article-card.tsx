@@ -8,7 +8,7 @@ interface ArticleCardProps {
   title: string;
   category: string;
   image: string;
-  readTime: string;
+  readTime: number;
   id: number;
   className?: string;
 }
@@ -21,6 +21,10 @@ export function ArticleCard({
   id,
   className,
 }: ArticleCardProps) {
+  const imageSrc = /^https?:\/\//.test(image)
+    ? image
+    : `${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}${image}`;
+
   return (
     <div
       className={cn(
@@ -29,9 +33,10 @@ export function ArticleCard({
       )}
     >
       <Image
-        src={`${process.env.NEXT_PUBLIC_IMAGES_BASE_URL}${image}`}
+        src={imageSrc}
         alt={title}
         fill
+        unoptimized={imageSrc.includes("localhost")}
         className="object-cover transition-transform duration-300 group-hover:scale-105"
       />
       <div className="relative mt-auto flex flex-col items-start">
@@ -50,7 +55,7 @@ export function ArticleCard({
               Read <MoveRight className="size-3 text-secondary" />
             </Link>
             <span className="text-muted-foreground text-xs flex items-center gap-1">
-              <FileText className="size-4" /> {readTime}
+              <FileText className="size-4" /> {readTime} mins
             </span>
           </div>
         </div>

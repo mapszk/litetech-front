@@ -46,7 +46,7 @@ export function ArticleGrid({ posts, initialPage }: Props) {
     title: post.attributes.title,
     category: post.attributes.topic,
     image: post.attributes.coverImg.data.attributes.url,
-    readTime: `${post.attributes.readTime} min`,
+    readTime: post.attributes.readTime,
   }));
 
   const groups = chunk(mapped, 3);

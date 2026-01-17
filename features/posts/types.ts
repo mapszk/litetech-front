@@ -21,6 +21,8 @@ export interface RelatedPost {
   title: string;
   image: string;
   createdAt: string;
+  author: string;
+  readTime: number;
 }
 
 export interface CreateRelatedPostResult {
