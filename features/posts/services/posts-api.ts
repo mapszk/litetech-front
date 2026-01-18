@@ -30,7 +30,6 @@ export async function getPosts(
 
 export async function getPost(id: string): Promise<ApiResponse<SinglePost>> {
   const response = await fetch(`${API_BASE_URL}/posts/${id}`);
-  console.log(response);
   if (!response.ok) {
     const error: { message?: string } | null = await response
       .json()
