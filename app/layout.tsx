@@ -1,8 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
-import { Footer } from "@/components/ui/footer";
-import { Header } from "@/components/ui/header";
 import { Toaster } from "sonner";
 import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
@@ -27,9 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${spaceGrotesk.variable} font-sans antialiased`}>
         <NextTopLoader color="#d8f34e" showSpinner={false} shadow={false} />
-        <Header />
         {children}
-        <Footer />
         <Toaster position="top-right" />
       </body>
     </html>

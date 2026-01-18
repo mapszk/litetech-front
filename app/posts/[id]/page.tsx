@@ -1,9 +1,10 @@
 import { PostHero } from "@/features/posts/components/post-hero";
 import { PostContent } from "@/features/posts/components/post-content";
 import { RelatedPosts } from "@/features/posts/components/related-posts";
-import { PostLayout } from "@/features/posts/components/post-layout";
 import { fetchPost } from "@/features/posts/actions";
 import type { Metadata } from "next";
+import { Footer } from "@/components/ui/footer";
+import { Header } from "@/components/ui/header";
 
 export async function generateMetadata({
   params,
@@ -40,18 +41,20 @@ export default async function PostPage({
   const { id } = await params;
   const post = await fetchPost(id);
 
-  return (
-    <PostLayout>
-      <PostHero
-        coverImg={post.attributes.coverImg}
-        author={post.attributes.author}
-        title={post.attributes.title}
-        readTime={post.attributes.readTime}
-      />
-      <div className="container bg-white text-black">
-        <PostContent body={post.attributes.body} />
-        <RelatedPosts />
-      </div>
-    </PostLayout>
+  return (  
+    <div className="bg-white pb-5 lg:pb-10">
+      <Header />
+        <PostHero
+          coverImg={post.attributes.coverImg}
+          author={post.attributes.author}
+          title={post.attributes.title}
+          readTime={post.attributes.readTime}
+          />
+        <div className="container bg-white text-black">
+          <PostContent body={post.attributes.body} />
+          <RelatedPosts />
+        </div>
+      <Footer />
+    </div>
   );
 }
