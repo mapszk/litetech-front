@@ -2,7 +2,7 @@ import { HttpError } from "@/shared/types";
 import { RelatedPost } from "../types";
 
 const RELATED_POSTS_API_URL =
-  process.env.NEXT_PUBLIC_RELATED_POSTS_API_BASE_URL || "http://localhost:3001";
+  process.env.NEXT_PUBLIC_RELATED_POSTS_API_BASE_URL;
 
 export async function createRelatedPost(
   title: string,

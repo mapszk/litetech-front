@@ -11,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ArrowUp, CheckCircle2 } from "lucide-react";
+import { toast } from "sonner";
 
 interface CreatePostModalProps {
   isOpen: boolean;
@@ -39,6 +40,9 @@ export function CreatePostModal({
   };
 
   const handleSubmit = async () => {
+    if (!title || !title.trim()) return toast.error("Title is required");
+    if (!file) return toast.error("Image is required");
+
     setIsSubmitting(true);
     try {
       const success = await onSubmit(title, file);
@@ -115,7 +119,7 @@ export function CreatePostModal({
               onClick={handleSubmit}
               variant="black"
               className="w-auto"
-              disabled={isSubmitting || !title.trim()}
+              disabled={isSubmitting}
             >
               {isSubmitting ? "Uploading..." : "Confirm"}
             </Button>

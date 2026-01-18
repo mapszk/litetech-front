@@ -10,25 +10,17 @@ import { createRelatedPostAction } from "@/features/posts/actions";
 export function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSubmit = async (
-    title: string,
-    file: File | null,
-  ): Promise<boolean> => {
-    if (!file) {
-      toast.error("La imagen es requerida");
-      return false;
-    }
-
+  const handleSubmit = async (title: string, file: File): Promise<boolean> => {
     try {
       const result = await createRelatedPostAction(title, file);
       if (result.success) {
         return true;
       } else {
-        toast.error(result.error || "Error al crear el post");
+        toast.error(result.error || "Something went wrong, please try again");
         return false;
       }
     } catch (error) {
-      toast.error("Error inesperado al crear el post");
+      toast.error("Something went wrong, please try again");
       return false;
     }
   };

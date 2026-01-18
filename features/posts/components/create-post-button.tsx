@@ -9,15 +9,7 @@ import { toast } from "sonner";
 export function CreatePostButton() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleSubmit = async (
-    title: string,
-    file: File | null,
-  ): Promise<boolean> => {
-    if (!file) {
-      toast.error("La imagen es requerida");
-      return false;
-    }
-
+  const handleSubmit = async (title: string, file: File): Promise<boolean> => {
     try {
       const result = await createRelatedPostAction(title, file);
       if (result.success) {
