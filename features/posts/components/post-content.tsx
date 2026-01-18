@@ -4,8 +4,9 @@ import remarkGfm from "remark-gfm";
 import { MostViewed } from "./most-viewed";
 import { ShareSidebar } from "./share-sidebar";
 import { postMd } from "../content";
+
 interface PostContentProps {
-  body: string;
+  postId: number;
 }
 
 const components = {
@@ -14,11 +15,14 @@ const components = {
   ),
 };
 
-export function PostContent({ body }: PostContentProps) {
+export function PostContent({ postId }: PostContentProps) {
   return (
     <div className="py-12 bg-white">
       <div className="flex flex-col md:flex-row gap-6">
-        <ShareSidebar className="md:w-[20%] max-md:order-last" />
+        <ShareSidebar
+          url={`${process.env.NEXT_PUBLIC_BASE_URL}/posts/${postId}`}
+          className="md:w-[20%] max-md:order-last"
+        />
         <div className="flex-1">
           <article className="text-black">
             <div className="prose prose-lg max-w-none">
