@@ -26,7 +26,13 @@ export default function RootLayout({
       <body className={`${spaceGrotesk.variable} font-sans antialiased`}>
         <NextTopLoader color="#d8f34e" showSpinner={false} shadow={false} />
         {children}
-        <Toaster position="top-right" />
+        <Toaster
+          toastOptions={{
+            className:
+              "!rounded-none !bg-primary !border-3 !border-black !shadow-[6px_6px_0px_1px_#000000]",
+          }}
+          position="bottom-center"
+        />
       </body>
     </html>
   );
