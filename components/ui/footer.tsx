@@ -13,19 +13,19 @@ export function Footer() {
           </Link>
           <div className="flex items-center max-md:justify-center gap-4 lg:gap-10">
             <Link
-              href="#"
+              href="https://linkedin.com/company/hellolitebox"
               className="text-foreground hover:text-primary transition-colors"
             >
               <LinkedinIcon className="size-5" />
             </Link>
             <Link
-              href="#"
+              href="https://facebook.com/hellolitebox"
               className="text-foreground hover:text-primary transition-colors"
             >
               <FacebookIcon className="size-5" />
             </Link>
             <Link
-              href="#"
+              href="https://x.com/hellolitebox"
               className="text-foreground hover:text-primary transition-colors"
             >
               <XIcon className="size-5" />
